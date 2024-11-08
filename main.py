@@ -34,6 +34,11 @@ try:
     else:
         print("Button was already enabled")
 
+    # Wait for the job listings to load after enabling the button
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, ".grid.grid-cols-12.px-5"))
+    )
+
     # Keep the window open for inspection
     time.sleep(30)
 finally:
